@@ -14,8 +14,13 @@ test_content = test_puzzle.read()
 puzzle = open("./assets/star1puzzle.txt", "r")
 puzzle_content = puzzle.read()
 
-test_lines = test_content.splitlines()
-lines = puzzle_content.splitlines()
+def numSifter(input):
+    lines = input.splitlines()
+    total = 0
+    for line in lines:
+        result = parseLine(line)
+        total += result
+    return total
 
 
 def parseLine(line):
@@ -30,19 +35,10 @@ def parseLine(line):
                 line_tester = line[index:len(num_str) + index]
                 if line_tester == num_str:
                     numbers_in_line.append(num_list[1])
-    return int(numbers_in_line[0] + numbers_in_line[-1])        
+    return int(numbers_in_line[0] + numbers_in_line[-1])
 
-for test_line in test_lines:
-    result = parseLine(test_line)
-    total = total + result
-            
-print(total)
+#Test Results
+print(numSifter(test_content))
 
-total = 0
-
-for line in lines:
-    result = parseLine(line)
-    total = total + result
-    
-print(total)
-
+#Puzzle Results
+print(numSifter(puzzle_content))
