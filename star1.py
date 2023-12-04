@@ -1,13 +1,3 @@
-def main():
-    puzzle = open("./assets/star1puzzle.txt", "r")
-    puzzle_content = puzzle.read()
-    lines = puzzle_content.splitlines()
-    total = 0
-    for line in lines:
-        result = parseLine(line)
-        total = total + result
-    print(total)
-    
 def parseLine(line):
     first_number = None
     last_number = None
@@ -22,5 +12,12 @@ def parseLine(line):
             break
     return int(first_number + last_number)
 
-if __name__ == "__main__":
-    main()
+puzzle = open("./assets/star1puzzle.txt", "r")
+puzzle_content = puzzle.read()
+lines = puzzle_content.splitlines()
+total = 0
+for line in lines:
+    result = parseLine(line)
+    total = total + result
+print(total)
+    
